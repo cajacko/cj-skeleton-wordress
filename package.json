@@ -1,0 +1,27 @@
+{
+  "name": "cj-skeleton-wordpress",
+  "version": "1.0.0",
+  "description": "Skeleton for setting up a new Wordpress site",
+  "bin": {
+    "cj": "bin/cj.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cajacko/cj-skeleton-wordress.git"
+  },
+  "author": "Charlie Jackson",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/cajacko/cj-skeleton-wordress/issues"
+  },
+  "homepage": "https://github.com/cajacko/cj-skeleton-wordress#readme",
+  "dependencies": {
+    "fs-extra": "^0.30.0",
+    "ncp": "^2.0.0",
+    "prompt": "^1.0.0"
+  }
+}

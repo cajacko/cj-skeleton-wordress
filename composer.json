@@ -1,0 +1,11 @@
+{
+    "name": "charlie.jackson/cj-skeleton-wordpress",
+    "authors": [
+        {
+            "name": "Charlie Jackson",
+            "email": "charlie@charliejackson.com"
+        }
+    ],
+    "require": {
+    }
+}
