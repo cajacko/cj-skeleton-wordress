@@ -18,7 +18,8 @@ function wordpress_theme_setup_media()
 function wordpress_theme_media_ini()
 {
     // Set upload size
-    @ini_set(‘upload_max_size’, ‘10G’);
-    @ini_set(‘post_max_size’, ‘10G’);
-    @ini_set(‘max_execution_time’, ‘300’);
+    @ini_set('upload_max_size', '10G');
+    @ini_set('upload_max_filesize', '10G');
+    @ini_set('post_max_size', '10G');
+    @ini_set('max_execution_time', '300');
 }
