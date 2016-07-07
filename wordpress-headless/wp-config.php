@@ -107,8 +107,6 @@ if (defined('WP_INSTALLING') && WP_INSTALLING) {
         update_option('current_theme', $config->activeTheme);
         update_option('template', $config->activeTheme);
         update_option('stylesheet', $config->activeTheme);
-        activate_plugin('WP-API/plugin.php');
-        // activate_plugin('OAuth1/oauth-server.php');
     }
 }
 

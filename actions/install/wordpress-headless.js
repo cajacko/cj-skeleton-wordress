@@ -84,21 +84,6 @@ function deleteProcess(project) {
 //   return 1;
 // }
 
-function emptyDir(next) {
-  var project = 'emptyDir';
-  addProcess(project);
-
-  fs.emptyDir('./', function (err) {
-    deleteProcess(project);
-
-    if (err) {
-      console.log(err);
-    } else {
-      next();
-    }
-  });
-}
-
 function copyFiles(next) {
   var project = 'copyFiles';
   addProcess(project);
@@ -241,10 +226,10 @@ function processWordpressConfig(next) {
   });
 }
 
-function installWPrest(next) {
-  var project = 'installWPrest';
+function installHeadlessTheme(next) {
+  var project = 'installHeadlessTheme';
   addProcess(project);
-  var cmd = 'git clone -b release-2-0-beta-13-1 https://github.com/WP-API/WP-API.git ./public/wp-content/plugins/WP-API';
+  var cmd = 'git submodule add -b develop https://github.com/cajacko/headless.git ./public/wp-content/themes/headless';
 
   exec(cmd, function(error, stdout, stderr) {
     deleteProcess(project);  
@@ -253,26 +238,25 @@ function installWPrest(next) {
 }
 
 module.exports = function() {
-  emptyDir(function() {
-    copyFiles(function() {
-      updateThemeFiles(function() {
-      });
+  copyFiles(function() {
+    updateThemeFiles(function() {
+    });
 
-      runComposer(function() {
-        renameWordpressDir(function() {
-          deleteThemes(function() {
-            renameMoveTheme(function() {
-            });  
+    runComposer(function() {
+      renameWordpressDir(function() {
+        deleteThemes(function() {
+          installHeadlessTheme(function() {
           });
 
-          deletePlugins(function() {
-            installWPrest(function() {
-            });
+          renameMoveTheme(function() {
           });
+        });
 
-          processWordpressConfig(function() {
+        deletePlugins(function() {
+        });
 
-          });
+        processWordpressConfig(function() {
+
         });
       });
     });
